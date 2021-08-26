@@ -1,0 +1,547 @@
+[
+    {
+        "id": "f5b13bca1216343b",
+        "type": "tab",
+        "label": "Nibe",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "d3040bbf89eab50f",
+        "type": "modbus-read",
+        "z": "f5b13bca1216343b",
+        "name": "nibe_heat_kWh",
+        "topic": "nibe_heat_kWh",
+        "showStatusActivities": false,
+        "logIOActivities": false,
+        "showErrors": false,
+        "unitid": "1",
+        "dataType": "InputRegister",
+        "adr": "1585",
+        "quantity": "1",
+        "rate": "10",
+        "rateUnit": "s",
+        "delayOnStart": false,
+        "startDelayTime": "",
+        "server": "d09d40d0809581b7",
+        "useIOFile": false,
+        "ioFile": "",
+        "useIOForPayload": false,
+        "emptyMsgOnFail": false,
+        "x": 260,
+        "y": 160,
+        "wires": [
+            [
+                "ddd99bfb54b95c4f"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "ddd99bfb54b95c4f",
+        "type": "buffer-parser",
+        "z": "f5b13bca1216343b",
+        "name": "",
+        "data": "payload",
+        "dataType": "msg",
+        "specification": "spec",
+        "specificationType": "ui",
+        "items": [
+            {
+                "type": "uint16be",
+                "name": "heat_kWh",
+                "offset": 0,
+                "length": 1,
+                "offsetbit": 0,
+                "scale": "/10",
+                "mask": ""
+            }
+        ],
+        "swap1": "",
+        "swap2": "",
+        "swap3": "",
+        "swap1Type": "swap",
+        "swap2Type": "swap",
+        "swap3Type": "swap",
+        "msgProperty": "payload",
+        "msgPropertyType": "str",
+        "resultType": "value",
+        "resultTypeType": "output",
+        "multipleResult": false,
+        "fanOutMultipleResult": false,
+        "setTopic": true,
+        "outputs": 1,
+        "x": 490,
+        "y": 160,
+        "wires": [
+            [
+                "4ab6a7903795ab09"
+            ]
+        ]
+    },
+    {
+        "id": "436f294b151daea3",
+        "type": "modbus-read",
+        "z": "f5b13bca1216343b",
+        "name": "nibe_varmvatten_kWh",
+        "topic": "nibe_varmvatten_kWh",
+        "showStatusActivities": false,
+        "logIOActivities": false,
+        "showErrors": false,
+        "unitid": "1",
+        "dataType": "InputRegister",
+        "adr": "1583",
+        "quantity": "1",
+        "rate": "10",
+        "rateUnit": "s",
+        "delayOnStart": true,
+        "startDelayTime": "1",
+        "server": "d09d40d0809581b7",
+        "useIOFile": false,
+        "ioFile": "",
+        "useIOForPayload": false,
+        "emptyMsgOnFail": false,
+        "x": 280,
+        "y": 240,
+        "wires": [
+            [
+                "0225802e0c0613d4"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "0225802e0c0613d4",
+        "type": "buffer-parser",
+        "z": "f5b13bca1216343b",
+        "name": "",
+        "data": "payload",
+        "dataType": "msg",
+        "specification": "spec",
+        "specificationType": "ui",
+        "items": [
+            {
+                "type": "int16be",
+                "name": "VV_kWh",
+                "offset": 0,
+                "length": 1,
+                "offsetbit": 0,
+                "scale": "/10",
+                "mask": ""
+            }
+        ],
+        "swap1": "",
+        "swap2": "",
+        "swap3": "",
+        "swap1Type": "swap",
+        "swap2Type": "swap",
+        "swap3Type": "swap",
+        "msgProperty": "payload",
+        "msgPropertyType": "str",
+        "resultType": "value",
+        "resultTypeType": "output",
+        "multipleResult": false,
+        "fanOutMultipleResult": false,
+        "setTopic": true,
+        "outputs": 1,
+        "x": 490,
+        "y": 240,
+        "wires": [
+            [
+                "2d2e6d0ac6cdf2ac"
+            ]
+        ]
+    },
+    {
+        "id": "5fc649055a1c9d69",
+        "type": "modbus-read",
+        "z": "f5b13bca1216343b",
+        "name": "nibe",
+        "topic": "indoor",
+        "showStatusActivities": true,
+        "logIOActivities": false,
+        "showErrors": true,
+        "unitid": "1",
+        "dataType": "InputRegister",
+        "adr": "1",
+        "quantity": "1",
+        "rate": "10",
+        "rateUnit": "s",
+        "delayOnStart": true,
+        "startDelayTime": "4",
+        "server": "d09d40d0809581b7",
+        "useIOFile": false,
+        "ioFile": "",
+        "useIOForPayload": false,
+        "emptyMsgOnFail": false,
+        "x": 230,
+        "y": 320,
+        "wires": [
+            [
+                "2f5a0d8efd63c25e"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "2f5a0d8efd63c25e",
+        "type": "buffer-parser",
+        "z": "f5b13bca1216343b",
+        "name": "",
+        "data": "payload",
+        "dataType": "msg",
+        "specification": "spec",
+        "specificationType": "ui",
+        "items": [
+            {
+                "type": "int16be",
+                "name": "indoor",
+                "offset": 0,
+                "length": 1,
+                "offsetbit": 0,
+                "scale": "/10",
+                "mask": ""
+            }
+        ],
+        "swap1": "",
+        "swap2": "",
+        "swap3": "",
+        "swap1Type": "swap",
+        "swap2Type": "swap",
+        "swap3Type": "swap",
+        "msgProperty": "payload",
+        "msgPropertyType": "str",
+        "resultType": "value",
+        "resultTypeType": "output",
+        "multipleResult": false,
+        "fanOutMultipleResult": false,
+        "setTopic": true,
+        "outputs": 1,
+        "x": 490,
+        "y": 320,
+        "wires": [
+            [
+                "b38de52a65abd512"
+            ]
+        ]
+    },
+    {
+        "id": "7cd3943f459aa5bc",
+        "type": "modbus-read",
+        "z": "f5b13bca1216343b",
+        "name": "nibe_comp_h",
+        "topic": "nibe_comp_h",
+        "showStatusActivities": false,
+        "logIOActivities": false,
+        "showErrors": false,
+        "unitid": "1",
+        "dataType": "InputRegister",
+        "adr": "1087",
+        "quantity": "1",
+        "rate": "10",
+        "rateUnit": "s",
+        "delayOnStart": true,
+        "startDelayTime": "3",
+        "server": "d09d40d0809581b7",
+        "useIOFile": false,
+        "ioFile": "",
+        "useIOForPayload": false,
+        "emptyMsgOnFail": false,
+        "x": 250,
+        "y": 80,
+        "wires": [
+            [
+                "d441fa8694ad66d8"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "d441fa8694ad66d8",
+        "type": "buffer-parser",
+        "z": "f5b13bca1216343b",
+        "name": "",
+        "data": "payload",
+        "dataType": "msg",
+        "specification": "spec",
+        "specificationType": "ui",
+        "items": [
+            {
+                "type": "int16be",
+                "name": "comp_h",
+                "offset": 0,
+                "length": 1,
+                "offsetbit": 0,
+                "scale": "1",
+                "mask": ""
+            }
+        ],
+        "swap1": "",
+        "swap2": "",
+        "swap3": "",
+        "swap1Type": "swap",
+        "swap2Type": "swap",
+        "swap3Type": "swap",
+        "msgProperty": "payload",
+        "msgPropertyType": "str",
+        "resultType": "value",
+        "resultTypeType": "output",
+        "multipleResult": false,
+        "fanOutMultipleResult": false,
+        "setTopic": true,
+        "outputs": 1,
+        "x": 490,
+        "y": 80,
+        "wires": [
+            [
+                "367159667c5febb1"
+            ]
+        ]
+    },
+    {
+        "id": "367159667c5febb1",
+        "type": "ui_gauge",
+        "z": "f5b13bca1216343b",
+        "name": "",
+        "group": "4539130283370643",
+        "order": 1,
+        "width": "6",
+        "height": "6",
+        "gtype": "wave",
+        "title": "Timmar",
+        "label": " h",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "100",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "x": 720,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "4ab6a7903795ab09",
+        "type": "ui_gauge",
+        "z": "f5b13bca1216343b",
+        "name": "",
+        "group": "4539130283370643",
+        "order": 1,
+        "width": "6",
+        "height": "6",
+        "gtype": "wave",
+        "title": "Värme",
+        "label": " kWh",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "100",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "x": 710,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "2d2e6d0ac6cdf2ac",
+        "type": "ui_gauge",
+        "z": "f5b13bca1216343b",
+        "name": "",
+        "group": "4539130283370643",
+        "order": 1,
+        "width": "6",
+        "height": "6",
+        "gtype": "wave",
+        "title": "Varmvatten",
+        "label": " kWh",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "100",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "x": 730,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "b38de52a65abd512",
+        "type": "ui_gauge",
+        "z": "f5b13bca1216343b",
+        "name": "",
+        "group": "4539130283370643",
+        "order": 1,
+        "width": "6",
+        "height": "6",
+        "gtype": "wave",
+        "title": "Ute",
+        "label": " C",
+        "format": "{{value}}",
+        "min": "-50",
+        "max": "50",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "x": 710,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "3310b575bc8ccd44",
+        "type": "ui_gauge",
+        "z": "f5b13bca1216343b",
+        "name": "",
+        "group": "4539130283370643",
+        "order": 1,
+        "width": "6",
+        "height": "6",
+        "gtype": "wave",
+        "title": "Inne",
+        "label": " C",
+        "format": "{{value}}",
+        "min": "10",
+        "max": "30",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "x": 710,
+        "y": 400,
+        "wires": []
+    },
+    {
+        "id": "686d26c0bc130fa5",
+        "type": "buffer-parser",
+        "z": "f5b13bca1216343b",
+        "name": "",
+        "data": "payload",
+        "dataType": "msg",
+        "specification": "spec",
+        "specificationType": "ui",
+        "items": [
+            {
+                "type": "int16be",
+                "name": "VV_kWh",
+                "offset": 0,
+                "length": 1,
+                "offsetbit": 0,
+                "scale": "/10",
+                "mask": ""
+            }
+        ],
+        "swap1": "",
+        "swap2": "",
+        "swap3": "",
+        "swap1Type": "swap",
+        "swap2Type": "swap",
+        "swap3Type": "swap",
+        "msgProperty": "payload",
+        "msgPropertyType": "str",
+        "resultType": "value",
+        "resultTypeType": "output",
+        "multipleResult": false,
+        "fanOutMultipleResult": false,
+        "setTopic": true,
+        "outputs": 1,
+        "x": 490,
+        "y": 400,
+        "wires": [
+            [
+                "3310b575bc8ccd44"
+            ]
+        ]
+    },
+    {
+        "id": "f047c172f85795dc",
+        "type": "modbus-read",
+        "z": "f5b13bca1216343b",
+        "name": "nibe_inne",
+        "topic": "nibe_inne",
+        "showStatusActivities": false,
+        "logIOActivities": false,
+        "showErrors": false,
+        "unitid": "1",
+        "dataType": "InputRegister",
+        "adr": "26",
+        "quantity": "1",
+        "rate": "10",
+        "rateUnit": "s",
+        "delayOnStart": true,
+        "startDelayTime": "5",
+        "server": "d09d40d0809581b7",
+        "useIOFile": false,
+        "ioFile": "",
+        "useIOForPayload": false,
+        "emptyMsgOnFail": false,
+        "x": 240,
+        "y": 400,
+        "wires": [
+            [
+                "686d26c0bc130fa5"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "d09d40d0809581b7",
+        "type": "modbus-client",
+        "name": "Nibe",
+        "clienttype": "tcp",
+        "bufferCommands": true,
+        "stateLogEnabled": true,
+        "queueLogEnabled": true,
+        "tcpHost": "1.2.3.4",
+        "tcpPort": "502",
+        "tcpType": "DEFAULT",
+        "serialPort": "/dev/ttyUSB",
+        "serialType": "RTU-BUFFERD",
+        "serialBaudrate": "9600",
+        "serialDatabits": "8",
+        "serialStopbits": "1",
+        "serialParity": "none",
+        "serialConnectionDelay": "100",
+        "unit_id": "1",
+        "commandDelay": "1",
+        "clientTimeout": "1000",
+        "reconnectOnTimeout": true,
+        "reconnectTimeout": "2000",
+        "parallelUnitIdsAllowed": false
+    },
+    {
+        "id": "4539130283370643",
+        "type": "ui_group",
+        "name": "Nibe",
+        "tab": "4a15dfdbafc09c2e",
+        "order": 1,
+        "disp": true,
+        "width": "18",
+        "collapse": false
+    },
+    {
+        "id": "4a15dfdbafc09c2e",
+        "type": "ui_tab",
+        "name": "Driftinformation",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    }
+]
